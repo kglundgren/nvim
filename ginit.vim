@@ -1,12 +1,21 @@
 " ===== vim-plug settings =====
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/morhetz/gruvbox.git'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'preservim/nerdtree'
 Plug 'kevinoid/vim-jsonc'
 call plug#end()
+
+" Coc extensions.
+let g:coc_global_extensions = [
+	'coc-marketplace',
+	'coc-tsserver',
+	'coc-prettier',
+	'coc-html',
+	'coc-css',
+	'coc-json'
+]
 
 " Font settings.
 set guifont=Fira\ Mono:h11
