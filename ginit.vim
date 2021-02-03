@@ -10,6 +10,9 @@ call plug#end()
 " Coc extensions.
 let g:coc_global_extensions = ['coc-marketplace', 'coc-tsserver', 'coc-prettier', 'coc-html', 'coc-css', 'coc-json']
 
+" Remove ugly GUI tabline.
+GuiTabline 0
+
 " Font settings. Suppress 'bad fixed pitch metrics' for Fira Mono font.
 Guifont! Fira\ Mono:h11
 
