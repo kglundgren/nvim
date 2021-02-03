@@ -8,17 +8,10 @@ Plug 'kevinoid/vim-jsonc'
 call plug#end()
 
 " Coc extensions.
-let g:coc_global_extensions = [
-	'coc-marketplace',
-	'coc-tsserver',
-	'coc-prettier',
-	'coc-html',
-	'coc-css',
-	'coc-json'
-]
+let g:coc_global_extensions = ['coc-marketplace', 'coc-tsserver', 'coc-prettier', 'coc-html', 'coc-css', 'coc-json']
 
-" Font settings.
-set guifont=Fira\ Mono:h11
+" Font settings. Suppress 'bad fixed pitch metrics' for Fira Mono font.
+Guifont! Fira\ Mono:h11
 
 " NERDTree.
 nmap <C-n> :NERDTreeToggle<CR>
