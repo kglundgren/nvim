@@ -1,12 +1,14 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": [
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-        "json",
-		"jsonc"
-    ],
-    "prettier.semi": true,
-    "prettier.tabWidth": 4
+	"prettier.statusItemText": ""
+    // "coc.preferences.formatOnSaveFiletypes": [
+    //     "html",
+    //     "css",
+    //     "javascript",
+    //     "typescript",
+    //     "json",
+    //     "jsonc"
+    // ],
+    //"python.formatting.provider": "black"
+    //"prettier.semi": true,
+    //"prettier.tabWidth": 4
 }

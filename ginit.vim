@@ -2,58 +2,48 @@
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/morhetz/gruvbox.git'
-Plug 'bfrg/vim-cpp-modern'
 Plug 'preservim/nerdtree'
 Plug 'kevinoid/vim-jsonc'
+Plug 'chriskempson/base16-vim'
+Plug 'ajmwagar/vim-deus'
+Plug 'bfrg/vim-cpp-modern'
 call plug#end()
 
-" Coc extensions.
-let g:coc_global_extensions = ['coc-marketplace', 'coc-tsserver', 'coc-prettier', 'coc-html', 'coc-css', 'coc-json']
+filetype plugin indent on
+syntax on
 
-" Remove ugly GUI tabline.
-GuiTabline 0
+"vim-cpp-modern options.
 
-" Font settings. Suppress 'bad fixed pitch metrics' for Fira Mono font.
-Guifont! Fira\ Mono:h11
+" Set json files to jsonc filetype to fix comment highlighting.
+"autocmd FileType json set ft=jsonc
+"au BufWinEnter *.json set ft=jsonc
+"au BufEnter *.json set ft=jsonc
+
+" ================ Keybinds ================
+" Go to next tab with Ctrl+Tab, go backwards with Ctrl+Shift+Tab.
+map <C-Tab> gt
+map <C-S-Tab> gT
+
+" Escape to normal mode with jk.
+inoremap jk <esc>
+tnoremap jk <C-\><C-n>
+
+" Copy/paste to system clipboard with \y and \p.
+vnoremap <leader>y "*y
+nnoremap <leader>y "*yy
+nnoremap <leader>p "*p
+
+" Save with \w and quit without saving with \q.
+" Quit all without saving with \aq (all quit).
+" Write and quit with \wq.
+nnoremap <leader>w :write<CR>
+nnoremap <leader>q :quit<CR>
+
+" Toggle nohlsearch.
+nnoremap <silent> <leader>l :set nohlsearch!<CR>
 
 " NERDTree.
 nmap <C-n> :NERDTreeToggle<CR>
-
-" Tab size settings.
-set shiftwidth=4
-set tabstop=4
-
-" Define :Prettier command.
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-" Set ginit.vim environment variable.
-let $MYGVIMRC='~/AppData/Local/nvim/ginit.vim'
-
-" Python config.
-let g:python_host_prog = 'C:\Python27\python.exe'
-let g:python3_host_prog = 'C:\Program Files\Python39\python.exe'
-
-" vim-cpp-modern settings
-"let g:cpp_no_function_highlight=0
-
-" netrw settings
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 2
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-
-" Color scheme.
-colo gruvbox
-
-" Line numbers and relative numbers.
-set nu rnu 
-
-" Mouse support for all (=a) modes.
-set mouse=a
-
-" Hide ugly system popup menu.
-GuiPopupmenu 0
 
 "enable regular shift-insert 
 inoremap <silent>  <S-Insert>  <C-R>+
@@ -71,6 +61,58 @@ inoremap <silent>  <S-Insert>  <C-R>+
 :nnoremap <A-j> <C-w>j
 :nnoremap <A-k> <C-w>k
 :nnoremap <A-l> <C-w>l
+" ================ Keybinds ================
+
+" Tabline config.
+set showtabline=2
+
+" Statusline config.
+" set statusline=%f
+
+" Python formatprg.
+" au FileType python setlocal formatprg=black\ -
+
+" Coc extensions.
+let g:coc_global_extensions = ['coc-marketplace', 'coc-tsserver', 'coc-prettier', 'coc-html', 'coc-css', 'coc-json']
+
+" Remove ugly GUI tabline.
+GuiTabline 0
+
+" Font settings. Suppress 'bad fixed pitch metrics' for Fira Mono font.
+Guifont! Fira\ Mono:h11
+
+" Define :Prettier command.
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" Set ginit.vim environment variable.
+let $MYGVIMRC='~/AppData/Local/nvim/ginit.vim'
+
+" Python config.
+let g:python_host_prog = 'C:\Python27\python.exe'
+let g:python3_host_prog = 'C:\Program Files\Python39\python.exe'
+
+" netrw settings
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 2
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
+"let g:gruvbox_contrast_dark = 'medium' "options are: soft, medium, hard
+colorscheme gruvbox
+"colorscheme base16-default-dark
+"colorscheme deus
+
+
+" Line numbers and relative numbers.
+set number relativenumber 
+
+" Mouse support for all (=a) modes.
+set mouse=a
+
+" Hide ugly system popup menu.
+GuiPopupmenu 0
+
 
 
 """"""""""""""""
@@ -237,3 +279,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" ============ After CoC settings!
+
