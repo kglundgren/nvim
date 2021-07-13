@@ -1,23 +1,31 @@
-" ===== vim-plug settings =====
+" ========================= vim-plug settings =========================
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'https://github.com/morhetz/gruvbox.git'
-Plug 'preservim/nerdtree'
-Plug 'kevinoid/vim-jsonc'
-Plug 'chriskempson/base16-vim'
-Plug 'ajmwagar/vim-deus'
-Plug 'bfrg/vim-cpp-modern'
+
+" Colorschemes
+Plug 'https://github.com/morhetz/gruvbox.git' 
+Plug 'arcticicestudio/nord-vim' 
+"Plug 'chriskempson/base16-vim'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Conquer of Completion, language server etc.
+Plug 'preservim/nerdtree' " Directory browser.
+Plug 'kevinoid/vim-jsonc' " JSON comments.
+Plug 'bfrg/vim-cpp-modern' " CPP highlighting.
+Plug 'https://github.com/pangloss/vim-javascript.git' " JS highlighting.
+Plug 'maxmellon/vim-jsx-pretty' " JSX and TypeScript highlighting.
+
 call plug#end()
+" =====================================================================
 
-filetype plugin indent on
-syntax on
+"filetype plugin indent on
+"syntax on
 
-"vim-cpp-modern options.
+" Toggle paste mode with F2.
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
 
-" Set json files to jsonc filetype to fix comment highlighting.
-"autocmd FileType json set ft=jsonc
-"au BufWinEnter *.json set ft=jsonc
-"au BufEnter *.json set ft=jsonc
+" Comment lines with \c.
+vnoremap <leader>c <S-i>//<Esc>
 
 " ================ Keybinds ================
 " Go to next tab with Ctrl+Tab, go backwards with Ctrl+Shift+Tab.
@@ -79,13 +87,14 @@ let g:coc_global_extensions = ['coc-marketplace', 'coc-tsserver', 'coc-prettier'
 GuiTabline 0
 
 " Font settings. Suppress 'bad fixed pitch metrics' for Fira Mono font.
-Guifont! Fira\ Mono:h11
+" Guifont! Fira\ Mono:h11
+Guifont! Consolas:h11
 
 " Define :Prettier command.
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Set ginit.vim environment variable.
-let $MYGVIMRC='~/AppData/Local/nvim/ginit.vim'
+let $GINITVIM='~/AppData/Local/nvim/ginit.vim'
 
 " Python config.
 let g:python_host_prog = 'C:\Python27\python.exe'
@@ -99,9 +108,10 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
 "let g:gruvbox_contrast_dark = 'medium' "options are: soft, medium, hard
-colorscheme gruvbox
+"colorscheme gruvbox
 "colorscheme base16-default-dark
 "colorscheme deus
+"colorscheme nord
 
 
 " Line numbers and relative numbers.
@@ -118,6 +128,10 @@ GuiPopupmenu 0
 """"""""""""""""
 " ~COC CONFIG~ "
 """"""""""""""""
+
+"Disable CoC on startup.
+let g:coc_start_at_startup=0
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
