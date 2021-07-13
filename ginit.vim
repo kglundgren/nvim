@@ -19,6 +19,8 @@ call plug#end()
 "filetype plugin indent on
 "syntax on
 
+
+" ================ KEYBINDS ================
 " Toggle paste mode with F2.
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
@@ -27,7 +29,6 @@ set showmode
 " Comment lines with \c.
 vnoremap <leader>c <S-i>//<Esc>
 
-" ================ Keybinds ================
 " Go to next tab with Ctrl+Tab, go backwards with Ctrl+Shift+Tab.
 map <C-Tab> gt
 map <C-S-Tab> gT
