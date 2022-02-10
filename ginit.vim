@@ -21,13 +21,14 @@ call plug#end()
 
 
 " ================ KEYBINDS ================
+" Comment lines with \c. Uncomment with \u.
+nnoremap <leader>c <S-i>// <Esc>
+nnoremap <leader>u <S-i><Del><Del><Del><Esc>
+
 " Toggle paste mode with F2.
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
-
-" Comment lines with \c.
-vnoremap <leader>c <S-i>//<Esc>
 
 " Go to next tab with Ctrl+Tab, go backwards with Ctrl+Shift+Tab.
 map <C-Tab> gt
@@ -41,6 +42,10 @@ tnoremap jk <C-\><C-n>
 vnoremap <leader>y "*y
 nnoremap <leader>y "*yy
 nnoremap <leader>p "*p
+
+" Copy with CTRL+Insert.
+nnoremap <C-Insert> "*yy
+vnoremap <C-Insert> "*y
 
 " Save with \w and quit without saving with \q.
 " Quit all without saving with \aq (all quit).
